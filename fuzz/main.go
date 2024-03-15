@@ -8,20 +8,18 @@ import (
 
 func main() {
 
-	inputs := t.New(t.WithBacking([]float64{1, 2, 3, 2.5}))
-	weights := t.New(t.WithBacking([]float64{0.2, 0.8, -0.5, 1.0}))
-	bias := t.New(t.WithBacking([]float64{2.0}))
+	rawA := []float64{1, 2, 3}
+	rawB := []float64{2, 3, 4}
 
-	dotProduct, err := t.Dot(inputs, weights)
+	a := t.New(t.WithShape(1, 3), t.WithBacking(rawA))
+	b := t.New(t.WithShape(1, 3), t.WithBacking(rawB))
+
+	b.T()
+
+	dotProduct, err := t.Dot(a, b)
 	if err != nil {
 		fmt.Println(err)
 	}
 
-	output, err := t.Add(dotProduct, bias)
-	if err != nil {
-		fmt.Println(err)
-	}
-
-	fmt.Printf("%v\n", output)
-
+	fmt.Printf("%v\n", dotProduct)
 }
