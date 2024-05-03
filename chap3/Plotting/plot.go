@@ -1,4 +1,4 @@
-package main
+package Plotting
 
 import (
 	"image/color"
@@ -8,12 +8,9 @@ import (
 	"gonum.org/v1/plot/plotter"
 )
 
-func main() {
-	plotData(X, "plot.png", Y, CMap)
-}
-
-func plotData(data [][]float64, path string, col []float64, cmap map[float64]color.Color) {
-	p := plot.New()
+func PlotData(data [][]float64, path string, col []float64, cmap map[float64]color.Color) {
+	p, err := plot.New()
+	handleErr(err)
 
 	for key, element := range cmap {
 		xys := plotter.XYs{}

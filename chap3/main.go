@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	ml "github.com/jrx/nnfs/chap3/MachineLearning"
+	p "github.com/jrx/nnfs/chap3/Plotting"
 	t "gorgonia.org/tensor"
 )
 
@@ -66,4 +67,7 @@ func main() {
 	}
 
 	fmt.Printf("Output Layer 2:\n %v\n", layerOutputs2)
+
+	// Plotting
+	p.PlotData(p.X, "plot.png", p.Y, p.CMap)
 }

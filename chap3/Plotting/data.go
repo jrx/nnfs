@@ -1,4 +1,4 @@
-package main
+package Plotting
 
 import "image/color"
 
