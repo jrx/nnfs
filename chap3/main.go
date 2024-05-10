@@ -72,11 +72,25 @@ func main() {
 
 	// Dense Layer
 	dense1 := ml.NewLayerDense(2, 3)
-	dense2 := ml.NewLayerDense(3, 1)
+	activation1 := ml.NewActivationReLU()
+	// dense2 := ml.NewLayerDense(3, 1)
 
-	// forward pass
+	// // forward pass
 	dense1.Forward(p.X)
-	dense2.Forward(dense1.Output)
+	activation1.Forward(dense1.Output)
 
-	fmt.Println(dense2.Output)
+	fmt.Println(activation1.Output)
+
+	// dense2.Forward(dense1.Output)
+
+	// fmt.Println(dense2.Output)
+
+	// inputsBacking := []float64{0, 2, -1, 3.3, -2.7, 1.1, 2.2, -100}
+	// inputs := t.New(t.WithBacking(inputsBacking))
+
+	// outputs := ml.NewActivationReLU()
+	// outputs.Forward(inputs)
+
+	// fmt.Println(outputs)
+
 }
